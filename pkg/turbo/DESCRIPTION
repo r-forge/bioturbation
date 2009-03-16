@@ -1,0 +1,10 @@
+Package: turbo
+Version: 1.0
+Title: turbo - functions for fitting bioturbation models to tracer data
+Author: Pieter Provoost  <p.provoost@nioo.knaw.nl> Karline Soetaert <k.soetaert@nioo.knaw.nl>   Filip Meysman <p.meysman@nioo.knaw.nl>
+Maintainer: Pieter Provoost  <p.provoost@nioo.knaw.nl>
+Depends: deSolve, rootSolve, FME
+Description: functions for fitting bioturbation models to tracer data
+License: GPL
+LazyData: yes
+
