@@ -34,7 +34,7 @@
 
   \code{\link{nonlocal}},  nonlocal model
 
-  \code{\link{Lumniophore}}, a test dataset.
+  \code{\link{Luminophore}}, a test dataset.
 }
 
 \examples{
