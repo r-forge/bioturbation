@@ -1,2 +1,2 @@
-export(nonlocal, diffusive)
+export(nonlocal, diffusive, midpoints, numtoconc)
 
