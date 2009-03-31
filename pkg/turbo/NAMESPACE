@@ -1,2 +1,2 @@
-export(nonlocal, diffusive, midpoints, numtoconc)
+export(nonlocal, diffusive, midpoints, numtoconc, initialprofile, roughprofile)
 
