@@ -1,0 +1,17 @@
+core    	results	dens	species
+1	0.0024	0	Abra
+2	0.001	0	Abra
+3	4.00E-04	0	Abra
+4	0.0085	382	Abra
+#5	0.0653	382	Abra
+6	0.0294	764	Abra
+7	0.0106	764	Abra
+8	0.07	1273	Abra
+9	0.0326	1273	Abra
+16	0.0023	127	Nephtys
+17	0.0052	127	Nephtys
+18	0.0061	255	Nephtys
+19	0.0039	255	Nephtys
+20 	0.0032	382	Nephtys
+21 	0.0017	382	Nephtys
+                  
