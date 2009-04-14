@@ -6,7 +6,7 @@ graphics.off()
 
 
 
-datafile <- "z21.txt"
+datafile <- "w18.txt"
 
 
 
