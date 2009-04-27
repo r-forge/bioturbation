@@ -11,7 +11,7 @@ diffusive(times, initprof, parameters = list(), ...)}
   \item{times }{times at which explicit estimates for the profile are
     desired.  The first value in \code{times} must be the initial time.
   }
-  \item{initprof }{the initial (state) values for the ODE system.
+  \item{initprof }{the initial (state) values for the ODE system
   }
   \item{parameters }{vector or list of parameters used in the nonlocal function
   }
