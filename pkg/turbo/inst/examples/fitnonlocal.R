@@ -113,11 +113,17 @@ times <- c(0,days)
 final <- diffusive(times,initprofile,list(db=fitdbtransf,dx=dx))
 lines(initmidpoints,final[2,2:(slicenumber+1)],col="blue",lwd=2)
 
+# plot data
+
 points(datamidpoints,dataprofile,pch=21,bg="white")
+
+# legend
+
+legend(6,400,pch=c(NA,NA,NA,NA,21),lty=c("solid","solid","solid","solid","blank"),lwd=c(2,2,1,2,1),col=c("red","green","red","blue","black"),legend=c("nonlocal model","diffusive model","diffusive model using nldb","diffusive model transformed","data"),bty="n")
 
 # results
 
-cat("fitted step length: ",round(fitsl,digits=3),"\nfitted waiting time: ",round(fitwt,digits=3),"\nfitted db: ",round(fitdb,digits=3),"\nfitted db (transformed): ",round(fitdbtransf,digits=3),"\nfitted nldb: ",round(fitnldb,digits=3),"\n",sep="")
+cat("\nfitted step length: ",round(fitsl,digits=3),"\nfitted waiting time: ",round(fitwt,digits=3),"\nfitted db: ",round(fitdb,digits=3),"\nfitted db (transformed): ",round(fitdbtransf,digits=3),"\nfitted nldb: ",round(fitnldb,digits=3),"\n\n",sep="")
 
 
 
