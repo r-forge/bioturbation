@@ -16,7 +16,7 @@ days <- 14
 # read data
 
 datafile <- "data.txt"
-profilename <- "2"
+profilename <- "16B"
 data <- read.table(datafile,header=TRUE)
 dataframe <- subset(data,profile==profilename)
 datalimits <- unique(c(dataframe$start,dataframe$end))
