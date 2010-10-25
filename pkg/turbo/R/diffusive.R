@@ -16,7 +16,7 @@ diffusive <- function (times, initprof, parameters = list(), ...) {
 
   diffusivemodel <- function(t, profile, parms) {
     with (as.list(parms), {
-      diffusiveflux <- db * c(0,diff(c(profile,0))) / dx
+      diffusiveflux <- db * c(0,diff(c(profile,0))) / dx ### AANPASSEN
       dprofile <- diff(diffusiveflux) / dx - k * profile
       fluxslices <- ceiling(fluxintroduction / dx)
       dprofile[1:fluxslices] <- dprofile[1:fluxslices] + flux / (dx*fluxslices)
