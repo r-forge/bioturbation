@@ -57,7 +57,7 @@ nonlocal <- function (times, initprof, parameters = list(), ...)
 
   nonlocalmodel <- function(t, profile, parms, transitionmatrix) {
     with(as.list(parms),{
-      dprofile <- transitionmatrix %*% profile - k * profile
+      dprofile <- transitionmatrix %*% profile
       fluxslices <- ceiling(fluxintroduction / dx)
       dprofile[1:fluxslices] <- dprofile[1:fluxslices] + flux / (dx*fluxslices)
       list(dprofile=c(dprofile))
@@ -88,7 +88,8 @@ nonlocal <- function (times, initprof, parameters = list(), ...)
   if (length(times) > 1)
     out <- lsode (y=initprof, times=times, func=nonlocalmodel,
            parms=Parms, jacfunc=JacFun, jactype="fullusr",
-           transitionmatrix=JAC, ...)
+           transitionmatrix=JAC, 
+	...)
   else if ( is.null(times)) {
     out <-  nonlocalmodel(0,initprof,parms=Parms,transitionmatrix=JAC)
     warning("times is NULL; returning RATE OF CHANGE")
