@@ -12,42 +12,38 @@
 
 diffusive <- function (times, initprof, parameters = list(), ...) {
 
-  ## local functions
+	## local functions
 
-  diffusivemodel <- function(t, profile, parms) {
-    with (as.list(parms), {
-      diffusiveflux <- db * diff(profile) / dx ### AANPASSEN
-      dprofile <- diff(c(0,diffusiveflux,0)) / dx - k * profile
-      fluxslices <- ceiling(fluxintroduction / dx)
-      dprofile[1:fluxslices] <- dprofile[1:fluxslices] + flux / (dx*fluxslices)
-      list(c(dprofile))
-    })
-  }
+	diffusivemodel <- function(t, profile, parms) {
+		with (as.list(parms), {
+			diffusiveflux <- db * diff(profile) / dx ### AANPASSEN
+			dprofile <- diff(c(0,diffusiveflux,0)) / dx - k * profile
+			fluxslices <- ceiling(fluxintroduction / dx)
+			dprofile[1:fluxslices] <- dprofile[1:fluxslices] + flux / (dx*fluxslices)
+			list(c(dprofile))
+		})
+	}
 
-## the default parameter values
+	## the default parameter values
 
-  Parms <- c(db=0.01, dx=0.05, k=0,
-             flux=0, fluxintroduction=0.5)
+	Parms <- c(db=0.01, dx=0.05, k=0, flux=0, fluxintroduction=0.5)
 
-## check parameter inputs
+	## check parameter inputs
 
-  if (length(parameters)) {
-    nms <- names(Parms)
-    Parms[(namc <- names(parameters))]<-parameters
-    if (length(noNms <- namc[!namc %in% nms]) > 0)
-      warning("unknown names in parameters: ", paste(noNms, collapse = ", "))
-  }
+	if (length(parameters)) {
+		nms <- names(Parms)
+		Parms[(namc <- names(parameters))]<-parameters
+		if (length(noNms <- namc[!namc %in% nms]) > 0)
+			warning("unknown names in parameters: ", paste(noNms, collapse = ", "))
+	}
 
-## running the model
+	## running the model
 
-  # 2. run dynamically
-  if (length(times) > 1)
-    ode.band(y=initprof, times=times, func=diffusivemodel,
-        parms=Parms, nspec =1, ...)
-  # or estimate steady-state
-  else
-    steady.band(y=initprof, times=times, func=diffusivemodel,
-             parms=Parms, nspec =1, ...)$y
-
+	# 2. run dynamically
+	if (length(times) > 1)
+		ode.band(y=initprof, times=times, func=diffusivemodel, parms=Parms, nspec =1, ...)
+	# or estimate steady-state
+	else
+		steady.band(y=initprof, func=diffusivemodel, parms=Parms, nspec =1, ...)$y
 }
 
